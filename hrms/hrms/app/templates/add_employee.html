@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block title %}Add New Employee{% endblock %}
+
+{% block content %}
+<div class="max-w-2xl mx-auto">
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden">
+        <div class="bg-indigo-600 px-6 py-4">
+            <h3 class="text-xl font-bold text-white flex items-center">
+                <svg class="h-6 w-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path>
+                </svg>
+                Add New Employee
+            </h3>
+            <p class="text-indigo-100 text-sm mt-1">Fill in the details below to register a new team member.</p>
+        </div>
+
+        <form action="{{ url_for('main.add_employee_ui') }}" method="POST" class="p-8 space-y-6">
+            <div class="grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-2">
+                <div class="sm:col-span-1">
+                    <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
+                    <div class="mt-1">
+                        <input type="text" name="name" id="name" required
+                            class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md px-3 py-2 border">
+                    </div>
+                </div>
+
+                <div class="sm:col-span-1">
+                    <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+                    <div class="mt-1">
+                        <input type="email" name="email" id="email" required
+                            class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md px-3 py-2 border">
+                    </div>
+                </div>
+
+                <div class="sm:col-span-1">
+                    <label for="designation" class="block text-sm font-medium text-gray-700">Designation</label>
+                    <div class="mt-1">
+                        <input type="text" name="designation" id="designation"
+                            class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md px-3 py-2 border">
+                    </div>
+                </div>
+
+                <div class="sm:col-span-1">
+                    <label for="department" class="block text-sm font-medium text-gray-700">Department</label>
+                    <div class="mt-1">
+                        <input type="text" name="department" id="department"
+                            class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md px-3 py-2 border">
+                    </div>
+                </div>
+
+                <div class="sm:col-span-2">
+                    <label for="address" class="block text-sm font-medium text-gray-700">Address</label>
+                    <div class="mt-1">
+                        <textarea id="address" name="address" rows="3"
+                            class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-300 rounded-md px-3 py-2"></textarea>
+                    </div>
+                </div>
+
+                <div class="sm:col-span-1">
+                    <label for="date_of_joining" class="block text-sm font-medium text-gray-700">Date of Joining</label>
+                    <div class="mt-1">
+                        <input type="date" name="date_of_joining" id="date_of_joining" required
+                            class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md px-3 py-2 border">
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-5 border-t border-gray-200 flex justify-end space-x-3">
+                <a href="{{ url_for('main.index') }}"
+                    class="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-200">
+                    Cancel
+                </a>
+                <button type="submit"
+                    class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-200">
+                    Save Employee
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
